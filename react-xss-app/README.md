@@ -12,5 +12,5 @@ Input(html): <script>alert('XSS')</script>
 
 It will be executed by the browser.
 
-Disclaimer
+#Disclaimer
 This app is for educational use only. Never expose this code in production environments.
