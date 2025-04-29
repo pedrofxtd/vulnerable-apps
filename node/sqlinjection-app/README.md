@@ -12,4 +12,4 @@ Request: /user?username=admin' OR '1'='1
 ## Disclaimer
 **This app is insecure and should only be used in isolated environments for training.**
 
-
+ 
