@@ -1,51 +1,47 @@
-# 🛡️ Broken Access Control – OWASP A01:2021
+# A01 – Broken Access Control
 
-This project is a deliberately vulnerable Node.js web application designed to demonstrate **Broken Access Control** (OWASP Top 10 - A01:2021).
+## 🔓 Vulnerable Example (index.js)
 
-## 🔍 Vulnerability: Broken Access Control
+The original implementation allowed unrestricted access to sensitive pages (`/admin`, `/user`) by typing the URLs directly, without validating the user's session or role.
 
-The application lacks proper access control mechanisms. Any user can access restricted pages simply by navigating to the URL.
+### ✅ CWE Reference
 
-### ✅ Intended behavior:
-- `/admin.html` should only be accessible to the "admin" user.
+- [CWE-284: Improper Access Control](https://cwe.mitre.org/data/definitions/284.html)  
+  *The app does not restrict access to protected resources.*
 
-### ❌ Vulnerable behavior:
-- Any user can directly access `/admin.html` even without being logged in as admin.
+---
 
-## 📁 Project Structure
+## 🔐 Secure Example (`safeindex.js`)
 
-broken-access-control-node/ ├── index.js ├── package.json ├── README.md └── views/ ├── login.html ├── user.html └── admin.html
+The fixed version introduces proper **role-based access control (RBAC)** using:
 
+- Express sessions to track users
+- Role verification middleware before serving protected pages
+- Proper logout route to destroy sessions
 
-## 🚀 How to Run
+---
+
+## 🧪 How to Run
 
 1. Install dependencies:
-
-npm install
+    ```bash
+    npm install express express-session body-parser
+    ```
 
 2. Start the server:
+    ```bash
+    node safeindex.js
+    ```
 
-node index.js
+3. Visit `http://localhost:3000` and submit a username (`admin` or any other name) to test role-specific access.
 
-3. Visit:
+---
 
-http://localhost:3000/login.html
+## 💡 Lessons
 
+- Always verify user roles before serving sensitive content.
+- Never rely solely on front-end redirects or URLs for access control.
+- Use sessions or JWT for proper authentication.
 
-🧪 Test the Vulnerability
-
-Login with any username (e.g. "guest")
-
-You’ll be redirected to the user page
-
-Manually visit:
-
-http://localhost:3000/admin.html
-
-➡️ You’ll access the admin page without being authorized.
-
-📚 OWASP Reference
-OWASP A01:2021 - Broken Access Control
-
-
+---
 
