@@ -6,7 +6,7 @@ A deliberately vulnerable Node.js app with SQL Injection for educational purpose
 This app takes user input from a query parameter and inserts it directly into a SQL query without sanitization.
 
 ## Example
-Request: /user?username=admin' OR '1'='1
+Request:/user?username=admin' OR '1'='1
 
 
 ## Disclaimer
