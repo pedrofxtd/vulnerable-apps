@@ -1,4 +1,4 @@
-# nodejs-sqli-app
+# sqlinjection-app
 
 A deliberately vulnerable Node.js app with SQL Injection for educational purposes.
 
