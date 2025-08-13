@@ -30,3 +30,4 @@ app.get('/debug/users', (_req, res) => {
 app.listen(PORT, () => {
   console.log(`🔐 Safe mass-assignment running at http://localhost:${PORT}`);
 });
+
