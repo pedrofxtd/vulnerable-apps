@@ -6,21 +6,21 @@ const PORT = 3010;
 
 app.use(bodyParser.json());
 
-// "Banco" em memória
+// In-memory "database"
 const users = [];
 
-// ❌ Vulnerável: copia tudo do body para o objeto salvo
+// ❌ Vulnerable: copies all fields from req.body to the stored object
 app.post('/register', (req, res) => {
-  const newUser = { ...req.body }; // aceita isAdmin, balance, etc.
+  const newUser = { ...req.body }; // accepts isAdmin, balance, etc.
   users.push(newUser);
   res.status(201).json({ created: newUser });
 });
 
-// Endpoint só para visualizar o problema
+// Endpoint to check what’s stored (for demonstration)
 app.get('/debug/users', (_req, res) => {
   res.json(users);
 });
 
 app.listen(PORT, () => {
-  console.log(`🚨 Vulnerable mass-assignment on http://localhost:${PORT}`);
+  console.log(`🚨 Vulnerable mass-assignment running at http://localhost:${PORT}`);
 });
