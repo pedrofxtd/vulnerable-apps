@@ -1,0 +1,11 @@
+{
+  "name": "path-traversal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  "start:vuln": "node vulnerable-app.js",
+  "start:safe": "node safeapp.js"
+}
+}
+
