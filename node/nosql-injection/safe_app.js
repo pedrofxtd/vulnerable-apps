@@ -79,3 +79,4 @@ Operator keys ($...) are rejected; query is server-built.`
 initDB().then(() => {
   app.listen(PORT, () => console.log(`✅ Safe NoSQLi app on http://localhost:${PORT}`));
 });
+
